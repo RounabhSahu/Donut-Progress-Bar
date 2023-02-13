@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Progress Bar with Filling Animation
+<hr/>
+This is ReactJS project made using TailwindCSS. This is a simple project in which we showcase a donut shaped chart which can be used to show some data maybe ... or your progress in your portfolio.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### You can use the below properties to configure .. they are self explanatory ...enjoy :)
+<div style="color:cornflowerblue;">
+<li>percentage <i style="color:red;">required</i></li>
+<li>topic <i style="color:red;">required if children not passed</i> </li>
+<li>radius  <i style="color:red;">required</i></li>
+<li>innerCircleWidth</li>
+<li>outerCircleWidth</li>
+<li>outerColor</li>
+<li>outerBorderColor</li>
+<li>innerColor</li>
+<li>innerBorderColor</li>
+<li>children  <i style="color:red;">children inside the component</i></li>
+<li>time  <i style="color:red;">time to complete full animation</i></li>
+<li>animation  <i style="color:red;">enable animation or not</i></li>
+</div>
 
-In the project directory, you can run:
+![progress.gif](progress.gif)
 
-### `npm start`
+#### Code for this sample 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```js
+    <div className="h-64 w-64">
+        <ProgressBar
+            percentage={70}
+            topic={'Donut 1'}
+            radius={45}
+        />
+    </div>
+    <div className="h-64 w-64">
+        <ProgressBar
+            percentage={50}
+            topic={'Donut 2'}
+            radius={45}
+            innerCircleWidth={5}
+            innerColor={'pink'}
+            innerBorderColor={'red'}
+            outerColor={'skyblue'}
+            outerBorderColor={'white'}
+            outerCircleWidth={7}
+            time={3}
+        />
+    </div>
+    <div className="h-64 w-64">
+        <ProgressBar
+            percentage={90}
+            topic={'Donut 2'}
+            radius={45}
+            innerCircleWidth={5}
+            innerColor={'rgb(100, 0, 0)'}
+            innerBorderColor={'rgb(204,93,1)'}
+            outerColor={'rgb(0, 50, 0)'}
+            outerBorderColor={'rgb(208,191,9)'}
+            outerCircleWidth={10}
+            time={0.5}
+        />
+    </div>
+    <div className="h-64 w-64">
+        <ProgressBar
+            percentage={90}
+            topic={'Donut 2'}
+            radius={45}
+            innerCircleWidth={5}
+            innerColor={'rgba(89,215,0,0.54)'}
+            innerBorderColor={'rgb(204,93,1)'}
+            outerColor={'rgba(3,189,255,0.53)'}
+            outerBorderColor={'rgb(255,255,255)'}
+            outerCircleWidth={10}
+            animation={true}
+            time={10}
+        >
+            <div className="text-center text-transparent top-16 relative mx-6 py-4 text-md bg-clip-text bg-gradient-to-r from-pink-500 via-emerald-500 to-amber-400 shadow-amber-50 shadow p-2 rounded-full">
+                Just pass children and you can even render inside
+            </div>
+        </ProgressBar>
+    </div>
+```
